@@ -23,3 +23,16 @@
 ## 注意事项
 
  如果对 Git 和 GitHub 不太了解，请参考 [Git 官方文档](https://git-scm.com/book/zh/v2) 或者极客时间的[《玩转 Git 三剑客》](https://time.geekbang.org/course/intro/145)视频课程。
+
+## 在Mac下搭建测试环境
+
+pytest文档: https://www.osgeo.cn/pytest/contents.html
+
+* `$ virtualenv -p python3 venv`；
+
+* `$ source venv/bin/activate`；
+
+* `$ pip install pytest`；
+
+* `$ py.test Week1/`；
+

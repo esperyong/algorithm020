@@ -1,0 +1,4 @@
+[pytest]
+norecursedirs = scripts venv .* {args}
+python_paths = pysrc test
+

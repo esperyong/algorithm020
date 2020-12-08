@@ -73,6 +73,43 @@ class Solution(object):
 
         return res
 
+    def threeSum2(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+
+        ret = []
+        nums = sorted(nums)
+        n = len(nums)
+
+        for first in range(0,n - 2):
+            if nums[first] > 0:break
+            if first > 0 and nums[first] == nums[first-1]:continue
+
+            second,third = first + 1,n - 1
+
+            print(first, second, third)
+
+            while second < third:
+                s = nums[first] + nums[second] + nums[third]
+                print ([nums[first],nums[second],nums[third]])
+                if s > 0:
+                    third = third - 1
+                    while second < third and nums[third] == nums[third+1]:third=third-1
+                elif s < 0:
+                    second = second + 1
+                    while second < third and nums[second] == nums[second-1]:second=second+1
+                else:
+                    ret.append([nums[first],nums[second],nums[third]])
+                    second = second + 1
+                    third = third - 1
+                    while second < third and nums[third] == nums[third+1]:third=third-1
+                    while second < third and nums[second] == nums[second-1]:second=second+1
+
+
+        return ret
+
 def test():
 
     nums = [-1, 0, 1, 2, -1, -4,0,0]
@@ -87,9 +124,12 @@ def test():
 
 
     nums = [-1, 0, 1, 2, -1, -4]
-    for nums in s.threeSumBruteForceHash(nums):
-        assert sum(nums) == 0
+    ret = s.threeSum2(nums)
 
-    assert(False)
+    assert len(ret) != 0
+
+    for ss in ret:
+        assert sum(ss) == 0
+
 
 
